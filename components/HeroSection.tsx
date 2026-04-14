@@ -1,43 +1,26 @@
-import { Button } from "@/components/ui/button";
-import { Triangle } from "lucide-react";
+import Link from 'next/link';
 
-const hero = {
-  heading: "To get started, chat with AI.",
-  description: "Looking for a starting point or more instructions?",
-  hintBefore: "Head over to ",
-  hintBold1: "Templates",
-  hintBetween: " or the ",
-  hintBold2: "Learning",
-  hintAfter: " center.",
-  primaryCta: "Deploy Now",
-  secondaryCta: "Documentation",
-};
-
-export const HeroSection = () => {
+export default function HeroSection() {
   return (
-    <section className="flex flex-1 flex-col items-center justify-center px-6 text-center">
-      <h1 className="max-w-xl text-[28px] font-bold leading-[1.25] tracking-tight sm:text-[36px]">
-        {hero.heading}
-      </h1>
-      <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground">
-        {hero.description}
-      </p>
-      <p className="text-[15px] leading-relaxed text-muted-foreground">
-        {hero.hintBefore}
-        <span className="font-semibold text-foreground">{hero.hintBold1}</span>
-        {hero.hintBetween}
-        <span className="font-semibold text-foreground">{hero.hintBold2}</span>
-        {hero.hintAfter}
-      </p>
-      <div className="mt-8 flex items-center gap-4">
-        <Button className="h-11 gap-2 rounded-lg px-5">
-          <Triangle className="h-3.5 w-3.5 fill-current" />
-          {hero.primaryCta}
-        </Button>
-        <Button variant="outline" className="h-11 rounded-lg px-5">
-          {hero.secondaryCta}
-        </Button>
+    <section className="relative isolate px-6 pt-20 pb-16 sm:pt-28 sm:pb-24 lg:px-8">
+      <div className="mx-auto max-w-3xl text-center">
+        <p className="mb-3 text-sm font-medium tracking-wide text-primary/80">Senior Software Engineer</p>
+        <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">
+          Hi, I’m <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">Chirag Dodiya</span>
+        </h1>
+        <p className="mt-6 text-lg leading-7 text-muted-foreground">
+          I build reliable, scalable web platforms and delightful developer experiences. I care about performance,
+          accessibility, and craftsmanship across the stack.
+        </p>
+        <div className="mt-10 flex items-center justify-center gap-3">
+          <Link href="#projects" className="inline-flex items-center rounded-md bg-foreground px-5 py-2.5 text-sm font-medium text-background transition hover:opacity-90">
+            View Projects
+          </Link>
+          <Link href="#contact" className="inline-flex items-center rounded-md border border-foreground/20 px-5 py-2.5 text-sm font-medium text-foreground transition hover:bg-foreground/5">
+            Get in touch
+          </Link>
+        </div>
       </div>
     </section>
   );
-};
+}
