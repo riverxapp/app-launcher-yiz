@@ -5,6 +5,16 @@ export default function Home() {
   return (
     <div className="relative min-h-screen bg-slate-50 text-slate-900">
       <style>{`
+        :root {
+          --brand: #2563eb;
+          --brand-dark: #1d4ed8;
+          --text: #0f172a;
+          --muted: #475569;
+          --card: #ffffff;
+          --border: rgba(148, 163, 184, 0.22);
+          --shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
+        }
+
         .page-shell {
           min-height: 100vh;
           background:
@@ -19,12 +29,32 @@ export default function Home() {
           padding: 1.5rem;
         }
 
+        .skip-link {
+          position: absolute;
+          left: -9999px;
+          top: auto;
+          width: 1px;
+          height: 1px;
+          overflow: hidden;
+        }
+        .skip-link:focus {
+          left: 1rem;
+          top: 1rem;
+          width: auto;
+          height: auto;
+          padding: 0.5rem 0.75rem;
+          background: #0f172a;
+          color: #fff;
+          border-radius: 0.5rem;
+          z-index: 9999;
+        }
+
         .hero-card {
           position: relative;
           overflow: hidden;
-          border: 1px solid rgba(148, 163, 184, 0.22);
+          border: 1px solid var(--border);
           background: rgba(255, 255, 255, 0.78);
-          box-shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
+          box-shadow: var(--shadow);
           backdrop-filter: blur(14px);
           border-radius: 1.5rem;
         }
@@ -55,14 +85,49 @@ export default function Home() {
           font-size: clamp(2.25rem, 5vw, 4.5rem);
           line-height: 1.05;
           letter-spacing: -0.04em;
-          color: #0f172a;
+          color: var(--text);
+        }
+
+        .hero-subtitle {
+          margin: 0;
+          color: var(--muted);
+          font-size: 1.05rem;
+          letter-spacing: 0.01em;
         }
 
         .hero-text {
           max-width: 42rem;
-          color: #475569;
+          color: var(--muted);
           font-size: clamp(1rem, 1.3vw, 1.125rem);
           line-height: 1.75;
+        }
+
+        .profile {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.85rem;
+          margin-top: 0.75rem;
+        }
+        .avatar {
+          display: grid;
+          place-items: center;
+          width: 56px;
+          height: 56px;
+          border-radius: 999px;
+          background: conic-gradient(from 180deg at 50% 50%, #3b82f6, #06b6d4, #8b5cf6, #3b82f6);
+          padding: 2px;
+          box-shadow: 0 8px 18px rgba(37, 99, 235, 0.25);
+        }
+        .avatar-inner {
+          display: grid;
+          place-items: center;
+          width: 100%;
+          height: 100%;
+          border-radius: inherit;
+          background: #fff;
+          color: var(--text);
+          font-weight: 700;
+          letter-spacing: 0.02em;
         }
 
         .cta-group {
@@ -80,19 +145,29 @@ export default function Home() {
           padding: 0.95rem 1.3rem;
           font-weight: 600;
           text-decoration: none;
-          transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+          transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+          border: 1px solid transparent;
+        }
+        .btn svg {
+          margin-left: 0.5rem;
         }
 
         .btn-primary {
-          background: linear-gradient(135deg, #2563eb, #1d4ed8);
+          background: linear-gradient(135deg, var(--brand), var(--brand-dark));
           color: white;
           box-shadow: 0 12px 30px rgba(37, 99, 235, 0.25);
         }
 
         .btn-secondary {
           background: white;
-          color: #0f172a;
+          color: var(--text);
           border: 1px solid rgba(148, 163, 184, 0.35);
+        }
+
+        .btn-ghost {
+          background: transparent;
+          color: var(--brand);
+          border-color: rgba(37, 99, 235, 0.35);
         }
 
         .btn:hover {
@@ -108,7 +183,7 @@ export default function Home() {
         }
 
         .resume-panel h2 {
-          margin: 0 0 0.5rem;
+          margin: 0 0 0.25rem;
           font-size: 1.25rem;
         }
 
@@ -133,8 +208,8 @@ export default function Home() {
 
         .stat strong {
           display: block;
-          font-size: 1.35rem;
-          margin-bottom: 0.25rem;
+          font-size: 1.2rem;
+          margin-bottom: 0.2rem;
         }
 
         .stat span {
@@ -143,8 +218,27 @@ export default function Home() {
         }
 
         .section {
-          margin-top: 1.5rem;
+          margin-top: 1.75rem;
           padding: 1.5rem 0 0;
+        }
+
+        .section-header {
+          display: flex;
+          align-items: end;
+          justify-content: space-between;
+          gap: 1rem;
+          margin-bottom: 1rem;
+        }
+        .section-title {
+          margin: 0;
+          font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+          color: var(--text);
+          letter-spacing: -0.02em;
+        }
+        .section-subtitle {
+          margin: 0.25rem 0 0;
+          color: var(--muted);
+          font-size: 1rem;
         }
 
         .section-grid {
@@ -155,7 +249,7 @@ export default function Home() {
 
         .info-card {
           border-radius: 1.25rem;
-          background: white;
+          background: var(--card);
           border: 1px solid rgba(148, 163, 184, 0.18);
           padding: 1.35rem;
           box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
@@ -164,19 +258,335 @@ export default function Home() {
         .info-card h3 {
           margin: 0 0 0.5rem;
           font-size: 1.05rem;
-          color: #0f172a;
+          color: var(--text);
         }
 
         .info-card p {
           margin: 0;
-          color: #475569;
+          color: var(--muted);
           line-height: 1.7;
           font-size: 0.98rem;
+        }
+
+        /* Skills */
+        .skill-grid {
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0,1fr));
+          gap: 1.25rem;
+        }
+        .skill-card {
+          border-radius: 1rem;
+          background: var(--card);
+          border: 1px solid rgba(148, 163, 184, 0.18);
+          padding: 1.1rem 1.1rem 1.2rem;
+          box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
+        }
+        .skill-card header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 0.65rem;
+        }
+        .skill-name {
+          font-weight: 700;
+          color: var(--text);
+        }
+        .skill-level {
+          color: var(--muted);
+          font-size: 0.9rem;
+        }
+        .progress {
+          position: relative;
+          height: 8px;
+          background: #e2e8f0;
+          border-radius: 999px;
+          overflow: hidden;
+        }
+        .progress > span {
+          display: block;
+          height: 100%;
+          background: linear-gradient(90deg, var(--brand), var(--brand-dark));
+          border-radius: inherit;
+          box-shadow: inset 0 0 8px rgba(255,255,255,0.4);
+        }
+        .chips {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.5rem;
+          margin-top: 0.75rem;
+        }
+        .chip {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.35rem;
+          border-radius: 999px;
+          padding: 0.4rem 0.7rem;
+          background: rgba(37, 99, 235, 0.06);
+          color: #1e3a8a;
+          border: 1px solid rgba(37, 99, 235, 0.14);
+          font-size: 0.85rem;
+          font-weight: 600;
+        }
+
+        /* Timeline */
+        .timeline {
+          position: relative;
+          margin: 0;
+          padding-left: 1.25rem;
+          list-style: none;
+        }
+        .timeline::before {
+          content: "";
+          position: absolute;
+          left: 0.45rem;
+          top: 0;
+          bottom: 0;
+          width: 2px;
+          background: linear-gradient(180deg, rgba(30,58,138,0.2), rgba(37,99,235,0.25));
+        }
+        .timeline-item {
+          position: relative;
+          margin-bottom: 1rem;
+          background: var(--card);
+          border: 1px solid rgba(148, 163, 184, 0.2);
+          border-radius: 1rem;
+          padding: 1rem 1rem 1rem 1rem;
+          box-shadow: 0 10px 26px rgba(15, 23, 42, 0.04);
+        }
+        .timeline-item::before {
+          content: "";
+          position: absolute;
+          left: -0.74rem;
+          top: 1.2rem;
+          width: 10px;
+          height: 10px;
+          border-radius: 999px;
+          background: var(--brand);
+          box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+        }
+        .timeline-meta {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.5rem 1rem;
+          color: var(--muted);
+          font-size: 0.95rem;
+          margin-bottom: 0.5rem;
+        }
+        .timeline-role {
+          margin: 0 0 0.25rem;
+          color: var(--text);
+          font-weight: 700;
+          font-size: 1.05rem;
+        }
+        .timeline-points {
+          margin: 0.5rem 0 0 1rem;
+          padding: 0;
+          color: var(--muted);
+          line-height: 1.65;
+        }
+
+        /* Projects */
+        .projects-grid {
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 1.25rem;
+        }
+        .project-card {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          gap: 0.65rem;
+          border-radius: 1.1rem;
+          background: var(--card);
+          border: 1px solid rgba(148, 163, 184, 0.18);
+          padding: 1.1rem;
+          box-shadow: 0 12px 26px rgba(15, 23, 42, 0.05);
+          transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .project-card:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+        }
+        .project-title {
+          margin: 0;
+          font-size: 1.05rem;
+          color: var(--text);
+        }
+        .project-desc {
+          margin: 0;
+          color: var(--muted);
+          line-height: 1.65;
+          font-size: 0.97rem;
+        }
+        .project-actions {
+          margin-top: 0.35rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 1.25rem;
+        }
+        .testimonial {
+          border-radius: 1.1rem;
+          background: var(--card);
+          border: 1px solid rgba(148,163,184,0.18);
+          padding: 1.1rem;
+          box-shadow: 0 10px 26px rgba(15,23,42,0.04);
+        }
+        .quote {
+          font-style: italic;
+          color: var(--text);
+          margin: 0 0 0.6rem 0;
+        }
+        .cite {
+          color: var(--muted);
+          font-size: 0.95rem;
+        }
+
+        /* Education */
+        .edu-grid {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 1.25rem;
+        }
+        .edu-card {
+          border-radius: 1.1rem;
+          background: var(--card);
+          border: 1px solid rgba(148,163,184,0.18);
+          padding: 1.1rem;
+          box-shadow: 0 10px 26px rgba(15,23,42,0.04);
+        }
+        .edu-card h4 {
+          margin: 0 0 0.35rem;
+          color: var(--text);
+          font-size: 1rem;
+        }
+        .edu-meta {
+          color: var(--muted);
+          font-size: 0.95rem;
+          margin-bottom: 0.35rem;
+        }
+
+        /* Contact */
+        .contact-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 1.25rem;
+        }
+        .contact-card, .contact-form {
+          border-radius: 1.1rem;
+          background: var(--card);
+          border: 1px solid rgba(148,163,184,0.18);
+          padding: 1.1rem;
+          box-shadow: 0 10px 26px rgba(15,23,42,0.04);
+        }
+        .contact-list {
+          margin: 0.25rem 0 0;
+          padding: 0;
+          list-style: none;
+          display: grid;
+          gap: 0.5rem;
+        }
+        .contact-list a {
+          color: var(--brand);
+          text-decoration: none;
+        }
+        .contact-list a:hover {
+          text-decoration: underline;
+        }
+        .form-row {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 0.75rem;
+          margin-bottom: 0.75rem;
+        }
+        .form-field {
+          display: grid;
+          gap: 0.35rem;
+        }
+        .form-field label {
+          font-weight: 600;
+          color: var(--text);
+          font-size: 0.95rem;
+        }
+        .form-field input,
+        .form-field textarea {
+          width: 100%;
+          border: 1px solid rgba(148,163,184,0.35);
+          border-radius: 0.75rem;
+          padding: 0.75rem 0.9rem;
+          font-size: 1rem;
+          color: var(--text);
+          outline: none;
+          background: #fff;
+          transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+        .form-field input:focus,
+        .form-field textarea:focus {
+          border-color: rgba(37, 99, 235, 0.6);
+          box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+        }
+        .form-actions {
+          margin-top: 0.35rem;
+          display: flex;
+          gap: 0.75rem;
+          align-items: center;
+        }
+
+        /* Footer */
+        footer.site-footer {
+          margin-top: 2rem;
+          padding: 1.5rem 0 2rem;
+          color: var(--muted);
+        }
+        .footer-inner {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 1rem;
+          border-top: 1px solid rgba(148,163,184,0.25);
+          padding-top: 1.25rem;
+        }
+        .footer-nav {
+          display: flex;
+          gap: 0.9rem;
+          flex-wrap: wrap;
+        }
+        .footer-nav a {
+          color: var(--muted);
+          text-decoration: none;
+          font-weight: 600;
+        }
+        .footer-nav a:hover {
+          color: var(--brand);
+          text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 1100px) {
+          .projects-grid,
+          .testimonials {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+          }
         }
 
         @media (max-width: 900px) {
           .hero-grid,
           .section-grid {
+            grid-template-columns: 1fr;
+          }
+          .skill-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+          }
+          .projects-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+          }
+          .edu-grid {
+            grid-template-columns: 1fr;
+          }
+          .contact-grid {
             grid-template-columns: 1fr;
           }
         }
@@ -201,31 +611,56 @@ export default function Home() {
           .stats {
             grid-template-columns: 1fr;
           }
+          .skill-grid,
+          .projects-grid,
+          .testimonials {
+            grid-template-columns: 1fr;
+          }
+          .form-row {
+            grid-template-columns: 1fr;
+          }
         }
       `}</style>
 
       <div className="page-shell">
+        <a href="#main" className="skip-link">Skip to content</a>
         <Navbar />
-        <main className="content-wrap">
+        <main id="main" className="content-wrap">
           <section className="hero-card" aria-labelledby="hero-title">
             <div className="hero-grid">
               <div>
-                <span className="eyebrow">Professional Resume Website</span>
+                <span className="eyebrow" aria-label="Site type">Professional Resume Website</span>
                 <h1 id="hero-title" className="hero-title">
                   Hi, I&apos;m a dedicated professional building impactful digital experiences.
                 </h1>
+                <p className="hero-subtitle">Product-minded engineer with a passion for clarity, quality, and measurable outcomes.</p>
+
+                <div className="profile" aria-label="Profile summary">
+                  <div className="avatar" aria-hidden="true">
+                    <div className="avatar-inner">AE</div>
+                  </div>
+                  <div>
+                    <strong style={{display: 'block', color: '#0f172a'}}>Available for full-time and consulting</strong>
+                    <span style={{color: '#475569'}}>Remote • Open to opportunities</span>
+                  </div>
+                </div>
+
                 <p className="hero-text">
                   I help teams and clients turn ideas into polished, user-friendly products with a strong
                   focus on clarity, quality, and measurable results. This resume website highlights my
                   background, strengths, and commitment to delivering excellent work.
                 </p>
 
-                <div className="cta-group">
+                <div className="cta-group" role="group" aria-label="Primary actions">
                   <a className="btn btn-primary" href="#contact">
                     Contact Me
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
                   </a>
                   <a className="btn btn-secondary" href="#experience">
                     View Experience
+                  </a>
+                  <a className="btn btn-ghost" href="/resume.pdf" target="_blank" rel="noopener noreferrer" download>
+                    Download Resume
                   </a>
                 </div>
               </div>
@@ -236,20 +671,20 @@ export default function Home() {
                   A concise overview of skills, achievements, and professional value for employers,
                   collaborators, and clients.
                 </p>
-                <div className="stats">
-                  <div className="stat">
+                <div className="stats" role="list">
+                  <div className="stat" role="listitem">
                     <strong>10+ Years</strong>
                     <span>Professional experience</span>
                   </div>
-                  <div className="stat">
+                  <div className="stat" role="listitem">
                     <strong>50+ Projects</strong>
                     <span>Delivered successfully</span>
                   </div>
-                  <div className="stat">
+                  <div className="stat" role="listitem">
                     <strong>Top Skills</strong>
                     <span>Leadership, strategy, execution</span>
                   </div>
-                  <div className="stat">
+                  <div className="stat" role="listitem">
                     <strong>Available</strong>
                     <span>Open to opportunities</span>
                   </div>
@@ -259,25 +694,31 @@ export default function Home() {
           </section>
 
           <section className="section" aria-label="Professional highlights">
+            <header className="section-header">
+              <div>
+                <h2 className="section-title">Highlights</h2>
+                <p className="section-subtitle">A quick overview of what I do and how I can help.</p>
+              </div>
+            </header>
             <div className="section-grid">
-              <article className="info-card">
-                <h3>About Me</h3>
+              <article className="info-card" aria-labelledby="about-title">
+                <h3 id="about-title">About Me</h3>
                 <p>
                   I bring a detail-oriented approach to every project, combining professional communication,
                   dependable execution, and a strong commitment to excellence.
                 </p>
               </article>
 
-              <article className="info-card" id="experience">
-                <h3>Experience</h3>
+              <article className="info-card" id="experience" aria-labelledby="exp-title">
+                <h3 id="exp-title">Experience</h3>
                 <p>
                   Skilled in contributing to fast-paced environments, collaborating across teams, and
                   transforming goals into thoughtful, high-quality outcomes.
                 </p>
               </article>
 
-              <article className="info-card" id="contact">
-                <h3>Contact</h3>
+              <article className="info-card" id="contact-intro" aria-labelledby="contact-title">
+                <h3 id="contact-title">Contact</h3>
                 <p>
                   Ready to discuss opportunities, partnerships, or projects. Let&apos;s connect and build
                   something meaningful together.
@@ -285,7 +726,301 @@ export default function Home() {
               </article>
             </div>
           </section>
+
+          <section className="section" id="skills" aria-labelledby="skills-title">
+            <header className="section-header">
+              <div>
+                <h2 className="section-title" id="skills-title">Core Skills</h2>
+                <p className="section-subtitle">Technical proficiencies and strengths</p>
+              </div>
+              <div className="chips" aria-label="Key tags">
+                <span className="chip">Frontend</span>
+                <span className="chip">Backend</span>
+                <span className="chip">Product</span>
+              </div>
+            </header>
+            <div className="skill-grid">
+              <article className="skill-card" aria-label="JavaScript skill">
+                <header>
+                  <span className="skill-name">JavaScript / TypeScript</span>
+                  <span className="skill-level">Expert</span>
+                </header>
+                <div className="progress" role="progressbar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={95}>
+                  <span style={{ width: "95%" }} />
+                </div>
+                <div className="chips">
+                  <span className="chip">ESNext</span>
+                  <span className="chip">Node.js</span>
+                  <span className="chip">Tooling</span>
+                </div>
+              </article>
+
+              <article className="skill-card" aria-label="React skill">
+                <header>
+                  <span className="skill-name">React & Modern UI</span>
+                  <span className="skill-level">Advanced</span>
+                </header>
+                <div className="progress" role="progressbar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={90}>
+                  <span style={{ width: "90%" }} />
+                </div>
+                <div className="chips">
+                  <span className="chip">Next.js</span>
+                  <span className="chip">Design Systems</span>
+                  <span className="chip">Accessibility</span>
+                </div>
+              </article>
+
+              <article className="skill-card" aria-label="Cloud skill">
+                <header>
+                  <span className="skill-name">Cloud & DevOps</span>
+                  <span className="skill-level">Advanced</span>
+                </header>
+                <div className="progress" role="progressbar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={80}>
+                  <span style={{ width: "80%" }} />
+                </div>
+                <div className="chips">
+                  <span className="chip">AWS</span>
+                  <span className="chip">CI/CD</span>
+                  <span className="chip">Observability</span>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <section className="section" aria-labelledby="experience-title">
+            <header className="section-header">
+              <div>
+                <h2 className="section-title" id="experience-title">Experience</h2>
+                <p className="section-subtitle">Roles that shaped my approach and impact</p>
+              </div>
+            </header>
+            <ol className="timeline" aria-label="Work timeline">
+              <li className="timeline-item">
+                <div className="timeline-meta">
+                  <span>Staff Software Engineer</span>
+                  <span>•</span>
+                  <span>TechCorp</span>
+                  <span>•</span>
+                  <time dateTime="2021-01">2021</time>–Present
+                </div>
+                <h3 className="timeline-role">Leading platform initiatives for scalable, secure web apps</h3>
+                <ul className="timeline-points">
+                  <li>Drove architecture for multi-tenant platform serving 1M+ users.</li>
+                  <li>Mentored engineers; established code quality and testing standards.</li>
+                  <li>Partnered with product to increase retention by 12% YoY.</li>
+                </ul>
+              </li>
+              <li className="timeline-item">
+                <div className="timeline-meta">
+                  <span>Senior Frontend Engineer</span>
+                  <span>•</span>
+                  <span>Acme Inc.</span>
+                  <span>•</span>
+                  <time dateTime="2018-03">2018</time>–2020
+                </div>
+                <h3 className="timeline-role">Built design system and modernized web stack</h3>
+                <ul className="timeline-points">
+                  <li>Created component library adopted across 6 product teams.</li>
+                  <li>Improved performance (TTI -35%) with code-splitting and SSR.</li>
+                  <li>Led accessibility initiative to AA compliance.</li>
+                </ul>
+              </li>
+              <li className="timeline-item">
+                <div className="timeline-meta">
+                  <span>Software Engineer</span>
+                  <span>•</span>
+                  <span>Startup Studio</span>
+                  <span>•</span>
+                  <time dateTime="2015-06">2015</time>–2018
+                </div>
+                <h3 className="timeline-role">Shipped MVPs and iterated to product-market fit</h3>
+                <ul className="timeline-points">
+                  <li>Delivered 10+ full-stack MVPs across e‑commerce and SaaS.</li>
+                  <li>Implemented analytics loops to guide roadmap decisions.</li>
+                </ul>
+              </li>
+            </ol>
+          </section>
+
+          <section className="section" id="projects" aria-labelledby="projects-title">
+            <header className="section-header">
+              <div>
+                <h2 className="section-title" id="projects-title">Selected Projects</h2>
+                <p className="section-subtitle">A few examples of work and outcomes</p>
+              </div>
+            </header>
+            <div className="projects-grid">
+              <article className="project-card">
+                <h3 className="project-title">Analytics Dashboard</h3>
+                <p className="project-desc">
+                  Real-time analytics with custom charting, role-based access, and export pipelines.
+                </p>
+                <div className="chips">
+                  <span className="chip">Next.js</span>
+                  <span className="chip">WebSockets</span>
+                  <span className="chip">D3</span>
+                </div>
+                <div className="project-actions">
+                  <a className="btn btn-secondary" href="#" aria-disabled="true">Case Study</a>
+                </div>
+              </article>
+
+              <article className="project-card">
+                <h3 className="project-title">Design System</h3>
+                <p className="project-desc">
+                  Cross-platform component library with theming, tokens, and accessibility baked in.
+                </p>
+                <div className="chips">
+                  <span className="chip">Storybook</span>
+                  <span className="chip">Tokens</span>
+                  <span className="chip">A11y</span>
+                </div>
+                <div className="project-actions">
+                  <a className="btn btn-secondary" href="#" aria-disabled="true">Docs</a>
+                </div>
+              </article>
+
+              <article className="project-card">
+                <h3 className="project-title">Payments Platform</h3>
+                <p className="project-desc">
+                  PCI-compliant checkout with subscription billing, dunning, and reporting.
+                </p>
+                <div className="chips">
+                  <span className="chip">Node.js</span>
+                  <span className="chip">Stripe</span>
+                  <span className="chip">Postgres</span>
+                </div>
+                <div className="project-actions">
+                  <a className="btn btn-secondary" href="#" aria-disabled="true">Overview</a>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <section className="section" id="testimonials" aria-labelledby="testimonials-title">
+            <header className="section-header">
+              <div>
+                <h2 className="section-title" id="testimonials-title">Testimonials</h2>
+                <p className="section-subtitle">What colleagues and clients say</p>
+              </div>
+            </header>
+            <div className="testimonials">
+              <figure className="testimonial">
+                <blockquote className="quote">A thoughtful leader who ships with quality and empathy for users.</blockquote>
+                <figcaption className="cite">— Product Manager, TechCorp</figcaption>
+              </figure>
+              <figure className="testimonial">
+                <blockquote className="quote">Turned our messy prototype into a reliable, scalable application.</blockquote>
+                <figcaption className="cite">— Founder, Startup Studio</figcaption>
+              </figure>
+              <figure className="testimonial">
+                <blockquote className="quote">Sets a high bar for code quality and cross-team collaboration.</blockquote>
+                <figcaption className="cite">— Engineering Manager, Acme Inc.</figcaption>
+              </figure>
+            </div>
+          </section>
+
+          <section className="section" id="education" aria-labelledby="education-title">
+            <header className="section-header">
+              <div>
+                <h2 className="section-title" id="education-title">Education & Certifications</h2>
+                <p className="section-subtitle">Foundations and ongoing learning</p>
+              </div>
+            </header>
+            <div className="edu-grid">
+              <article className="edu-card">
+                <h4>B.S. in Computer Science</h4>
+                <div className="edu-meta">State University • 2011–2015</div>
+                <p className="project-desc" style={{margin: 0}}>
+                  Focus on software engineering, human-computer interaction, and systems.
+                </p>
+              </article>
+              <article className="edu-card">
+                <h4>Professional Certifications</h4>
+                <div className="edu-meta">AWS Certified • Scrum • Accessibility</div>
+                <p className="project-desc" style={{margin: 0}}>
+                  Continuous learning across cloud, delivery, and inclusive design.
+                </p>
+              </article>
+            </div>
+          </section>
+
+          <section className="section" id="contact" aria-labelledby="contact-section-title">
+            <header className="section-header">
+              <div>
+                <h2 className="section-title" id="contact-section-title">Let&apos;s Connect</h2>
+                <p className="section-subtitle">Reach out for opportunities, projects, or collaboration</p>
+              </div>
+            </header>
+            <div className="contact-grid">
+              <aside className="contact-card" aria-label="Contact details">
+                <h3 style={{marginTop: 0}}>Contact Details</h3>
+                <ul className="contact-list">
+                  <li>Email: <a href="mailto:hello@example.com">hello@example.com</a></li>
+                  <li>LinkedIn: <a href="#" aria-disabled="true">linkedin.com/in/yourprofile</a></li>
+                  <li>GitHub: <a href="#" aria-disabled="true">github.com/yourhandle</a></li>
+                  <li>Location: Remote • Global</li>
+                </ul>
+                <div className="cta-group" style={{marginTop: '1rem'}}>
+                  <a className="btn btn-primary" href="/resume.pdf" target="_blank" rel="noopener noreferrer" download>Download Resume</a>
+                  <a className="btn btn-secondary" href="#projects">View Projects</a>
+                </div>
+              </aside>
+
+              <form className="contact-form" method="post" action="mailto:hello@example.com" encType="text/plain" aria-label="Contact form">
+                <div className="form-row">
+                  <div className="form-field">
+                    <label htmlFor="name">Name</label>
+                    <input id="name" name="name" type="text" placeholder="Your name" required />
+                  </div>
+                  <div className="form-field">
+                    <label htmlFor="email">Email</label>
+                    <input id="email" name="email" type="email" placeholder="you@example.com" required />
+                  </div>
+                </div>
+                <div className="form-field">
+                  <label htmlFor="subject">Subject</label>
+                  <input id="subject" name="subject" type="text" placeholder="How can I help?" />
+                </div>
+                <div className="form-field">
+                  <label htmlFor="message">Message</label>
+                  <textarea id="message" name="message" rows={5} placeholder="Share a few details about your goals..." required />
+                </div>
+                <div className="form-actions">
+                  <button className="btn btn-primary" type="submit">Send Message</button>
+                  <a className="btn btn-ghost" href="mailto:hello@example.com">Open Email Client</a>
+                </div>
+              </form>
+            </div>
+          </section>
+
+          <footer className="site-footer" role="contentinfo">
+            <div className="footer-inner">
+              <small>© {new Date().getFullYear()} All rights reserved.</small>
+              <nav className="footer-nav" aria-label="Footer">
+                <a href="#skills">Skills</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#education">Education</a>
+                <a href="#contact">Contact</a>
+              </nav>
+            </div>
+          </footer>
         </main>
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Person',
+              name: 'A. Engineer',
+              jobTitle: 'Software Engineer',
+              url: '/',
+              sameAs: ['https://linkedin.com', 'https://github.com'],
+            }),
+          }}
+        />
       </div>
     </div>
   );
