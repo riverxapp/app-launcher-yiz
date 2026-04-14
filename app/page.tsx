@@ -8,6 +8,7 @@ export default function Home() {
         :root {
           --brand: #2563eb;
           --brand-dark: #1d4ed8;
+          --accent: #06b6d4;
           --text: #0f172a;
           --muted: #475569;
           --card: #ffffff;
@@ -18,7 +19,8 @@ export default function Home() {
         .page-shell {
           min-height: 100vh;
           background:
-            radial-gradient(circle at top, rgba(59, 130, 246, 0.12), transparent 34%),
+            radial-gradient(circle at top left, rgba(37,99,235,0.06), transparent 18%),
+            radial-gradient(circle at bottom right, rgba(6,182,212,0.04), transparent 20%),
             linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
         }
 
@@ -49,22 +51,28 @@ export default function Home() {
           z-index: 9999;
         }
 
+        /* HERO (updated design) */
         .hero-card {
           position: relative;
-          overflow: hidden;
-          border: 1px solid var(--border);
-          background: rgba(255, 255, 255, 0.78);
-          box-shadow: var(--shadow);
-          backdrop-filter: blur(14px);
-          border-radius: 1.5rem;
+          overflow: visible;
+          border: none;
+          background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.85));
+          box-shadow: 0 10px 40px rgba(2,6,23,0.06);
+          backdrop-filter: blur(8px);
+          border-radius: 1.25rem;
+          padding: 2rem;
         }
 
         .hero-grid {
           display: grid;
           gap: 2rem;
-          grid-template-columns: 1.2fr 0.8fr;
+          grid-template-columns: 1fr 420px;
           align-items: center;
-          padding: 2rem;
+          padding: 1.25rem;
+        }
+
+        .hero-left {
+          padding-right: 0.5rem;
         }
 
         .eyebrow {
@@ -72,41 +80,77 @@ export default function Home() {
           align-items: center;
           gap: 0.5rem;
           border-radius: 999px;
-          padding: 0.5rem 0.9rem;
-          background: rgba(37, 99, 235, 0.08);
+          padding: 0.35rem 0.75rem;
+          background: rgba(37, 99, 235, 0.09);
           color: #1d4ed8;
           font-size: 0.875rem;
-          font-weight: 600;
+          font-weight: 700;
           letter-spacing: 0.02em;
+          text-transform: uppercase;
         }
 
         .hero-title {
-          margin: 1rem 0 0.75rem;
-          font-size: clamp(2.25rem, 5vw, 4.5rem);
-          line-height: 1.05;
-          letter-spacing: -0.04em;
+          margin: 0.8rem 0 0.6rem;
+          font-size: clamp(1.75rem, 4.6vw, 3.2rem);
+          line-height: 1.02;
+          letter-spacing: -0.02em;
           color: var(--text);
+          font-weight: 800;
+        }
+
+        .hero-accent {
+          color: var(--brand);
+          background: linear-gradient(90deg, rgba(37,99,235,0.15), rgba(29,78,216,0.05));
+          padding: 0 0.25rem;
+          border-radius: 0.35rem;
         }
 
         .hero-subtitle {
-          margin: 0;
+          margin: 0.35rem 0 1rem;
           color: var(--muted);
           font-size: 1.05rem;
           letter-spacing: 0.01em;
         }
 
         .hero-text {
-          max-width: 42rem;
+          margin-top: 0.6rem;
+          max-width: 56rem;
           color: var(--muted);
-          font-size: clamp(1rem, 1.3vw, 1.125rem);
-          line-height: 1.75;
+          font-size: clamp(0.98rem, 1.4vw, 1.06rem);
+          line-height: 1.7;
+        }
+
+        .feature-list {
+          display: flex;
+          gap: 1rem;
+          margin-top: 1.2rem;
+          flex-wrap: wrap;
+        }
+
+        .feature-item {
+          display: inline-flex;
+          gap: 0.65rem;
+          align-items: center;
+          background: rgba(15,23,42,0.03);
+          padding: 0.55rem 0.8rem;
+          border-radius: 999px;
+          color: var(--muted);
+          font-weight: 700;
+          font-size: 0.94rem;
+        }
+
+        .feature-item svg {
+          width: 18px;
+          height: 18px;
+          color: var(--brand);
+          flex-shrink: 0;
         }
 
         .profile {
           display: inline-flex;
           align-items: center;
           gap: 0.85rem;
-          margin-top: 0.75rem;
+          margin-top: 1.15rem;
         }
         .avatar {
           display: grid;
@@ -116,7 +160,7 @@ export default function Home() {
           border-radius: 999px;
           background: conic-gradient(from 180deg at 50% 50%, #3b82f6, #06b6d4, #8b5cf6, #3b82f6);
           padding: 2px;
-          box-shadow: 0 8px 18px rgba(37, 99, 235, 0.25);
+          box-shadow: 0 10px 26px rgba(37, 99, 235, 0.18);
         }
         .avatar-inner {
           display: grid;
@@ -134,46 +178,131 @@ export default function Home() {
           display: flex;
           flex-wrap: wrap;
           gap: 0.875rem;
-          margin-top: 1.75rem;
+          margin-top: 1.5rem;
         }
 
         .btn {
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          border-radius: 999px;
-          padding: 0.95rem 1.3rem;
-          font-weight: 600;
+          gap: 0.5rem;
+          border-radius: 0.9rem;
+          padding: 0.85rem 1.25rem;
+          font-weight: 700;
           text-decoration: none;
-          transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+          transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
           border: 1px solid transparent;
+          font-size: 0.98rem;
         }
         .btn svg {
-          margin-left: 0.5rem;
+          margin-left: 0;
         }
 
         .btn-primary {
           background: linear-gradient(135deg, var(--brand), var(--brand-dark));
           color: white;
-          box-shadow: 0 12px 30px rgba(37, 99, 235, 0.25);
+          box-shadow: 0 12px 30px rgba(37, 99, 235, 0.18);
         }
 
         .btn-secondary {
           background: white;
           color: var(--text);
-          border: 1px solid rgba(148, 163, 184, 0.35);
+          border: 1px solid rgba(148, 163, 184, 0.18);
         }
 
         .btn-ghost {
           background: transparent;
           color: var(--brand);
-          border-color: rgba(37, 99, 235, 0.35);
+          border-color: rgba(37, 99, 235, 0.12);
+        }
+
+        .btn:focus {
+          outline: 3px solid rgba(37, 99, 235, 0.15);
+          outline-offset: 2px;
         }
 
         .btn:hover {
-          transform: translateY(-1px);
+          transform: translateY(-3px);
+          box-shadow: 0 18px 36px rgba(2,6,23,0.08);
         }
 
+        .hero-right {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .hero-media {
+          width: 100%;
+          max-width: 400px;
+          border-radius: 1rem;
+          padding: 1rem;
+          background: linear-gradient(180deg, rgba(255,255,255,0.75), rgba(255,255,255,0.6));
+          border: 1px solid rgba(148,163,184,0.14);
+          box-shadow: 0 20px 40px rgba(15,23,42,0.06);
+          position: relative;
+          overflow: hidden;
+        }
+
+        .hero-device {
+          width: 100%;
+          height: 260px;
+          background: linear-gradient(180deg, #eef2ff 0%, #ffffff 100%);
+          border-radius: 0.75rem;
+          border: 1px solid rgba(148,163,184,0.12);
+          display: grid;
+          place-items: center;
+          box-shadow: inset 0 -8px 30px rgba(37,99,235,0.03);
+        }
+
+        .hero-device .mock {
+          width: 92%;
+          height: 78%;
+          border-radius: 0.6rem;
+          background: linear-gradient(90deg, rgba(37,99,235,0.06), rgba(6,182,212,0.04));
+          display: grid;
+          place-items: center;
+          color: var(--brand-dark);
+          font-weight: 700;
+          letter-spacing: 0.02em;
+        }
+
+        .logo-row {
+          display: flex;
+          gap: 0.85rem;
+          align-items: center;
+          margin-top: 1rem;
+          flex-wrap: wrap;
+        }
+        .logo {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          padding: 0.35rem 0.6rem;
+          border-radius: 0.5rem;
+          background: rgba(15,23,42,0.03);
+          font-weight: 700;
+          color: var(--muted);
+          font-size: 0.85rem;
+          border: 1px solid rgba(148,163,184,0.05);
+        }
+
+        /* Minor decorative floating shapes */
+        .hero-decor {
+          position: absolute;
+          right: -40px;
+          top: -30px;
+          width: 220px;
+          height: 220px;
+          background: radial-gradient(circle at 30% 30%, rgba(37,99,235,0.08), transparent 20%),
+                      radial-gradient(circle at 70% 70%, rgba(6,182,212,0.05), transparent 25%);
+          border-radius: 50%;
+          filter: blur(18px);
+          pointer-events: none;
+          z-index: 0;
+        }
+
+        /* Keep the resume panel, rest of page styles as-is (unchanged) */
         .resume-panel {
           border-radius: 1.25rem;
           padding: 1.5rem;
@@ -573,7 +702,17 @@ export default function Home() {
         }
 
         @media (max-width: 900px) {
-          .hero-grid,
+          .hero-grid {
+            grid-template-columns: 1fr;
+            padding: 1.25rem;
+          }
+          .hero-right {
+            order: -1;
+            margin-bottom: 0.25rem;
+          }
+          .hero-media {
+            max-width: 100%;
+          }
           .section-grid {
             grid-template-columns: 1fr;
           }
@@ -597,7 +736,7 @@ export default function Home() {
           }
 
           .hero-grid {
-            padding: 1.25rem;
+            padding: 0.65rem;
           }
 
           .cta-group {
@@ -627,66 +766,81 @@ export default function Home() {
         <Navbar />
         <main id="main" className="content-wrap">
           <section className="hero-card" aria-labelledby="hero-title">
+            <div className="hero-decor" aria-hidden="true" />
             <div className="hero-grid">
-              <div>
+              <div className="hero-left">
                 <span className="eyebrow" aria-label="Site type">Professional Resume Website</span>
+
                 <h1 id="hero-title" className="hero-title">
-                  Hi, I&apos;m a dedicated professional building impactful digital experiences.
+                  Hi, I&apos;m a dedicated professional building
+                  <span className="hero-accent"> impactful digital experiences</span>.
                 </h1>
-                <p className="hero-subtitle">Product-minded engineer with a passion for clarity, quality, and measurable outcomes.</p>
+
+                <p className="hero-subtitle">
+                  Product-minded engineer focused on clarity, quality, and measurable outcomes.
+                </p>
+
+                <p className="hero-text">
+                  I help teams and clients transform ideas into polished, user-centered products.
+                  My work emphasizes robust engineering, clear communication, and measurable impact —
+                  from discovery through launch and iteration.
+                </p>
+
+                <div className="feature-list" aria-hidden="false">
+                  <span className="feature-item">
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12l4 4L19 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                    End-to-end product delivery
+                  </span>
+                  <span className="feature-item">
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2v20M2 12h20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                    Scalable, maintainable systems
+                  </span>
+                  <span className="feature-item">
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 6v6l4 2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                    Measured outcomes & impact
+                  </span>
+                </div>
 
                 <div className="profile" aria-label="Profile summary">
                   <div className="avatar" aria-hidden="true">
                     <div className="avatar-inner">AE</div>
                   </div>
                   <div>
-                    <strong style={{display: 'block', color: '#0f172a'}}>Available for full-time and consulting</strong>
+                    <strong style={{display: 'block', color: '#0f172a'}}>Available for full-time & consulting</strong>
                     <span style={{color: '#475569'}}>Remote • Open to opportunities</span>
                   </div>
                 </div>
-
-                <p className="hero-text">
-                  I help teams and clients turn ideas into polished, user-friendly products with a strong
-                  focus on clarity, quality, and measurable results. This resume website highlights my
-                  background, strengths, and commitment to delivering excellent work.
-                </p>
 
                 <div className="cta-group" role="group" aria-label="Primary actions">
                   <a className="btn btn-primary" href="#contact">
                     Contact Me
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
                   </a>
+
                   <a className="btn btn-secondary" href="#experience">
                     View Experience
                   </a>
+
                   <a className="btn btn-ghost" href="/resume.pdf" target="_blank" rel="noopener noreferrer" download>
                     Download Resume
                   </a>
                 </div>
+
+                <div className="logo-row" aria-hidden="true">
+                  <div className="logo">Trusted by teams at TechCorp</div>
+                  <div className="logo">Startup Studio</div>
+                  <div className="logo">Acme</div>
+                </div>
               </div>
 
-              <aside className="resume-panel" aria-label="Resume summary">
-                <h2>Resume Snapshot</h2>
-                <p>
-                  A concise overview of skills, achievements, and professional value for employers,
-                  collaborators, and clients.
-                </p>
-                <div className="stats" role="list">
-                  <div className="stat" role="listitem">
-                    <strong>10+ Years</strong>
-                    <span>Professional experience</span>
+              <aside className="hero-right" aria-label="Visual preview">
+                <div className="hero-media" role="img" aria-label="Project preview mockup">
+                  <div className="hero-device" aria-hidden="true">
+                    <div className="mock">Project Preview</div>
                   </div>
-                  <div className="stat" role="listitem">
-                    <strong>50+ Projects</strong>
-                    <span>Delivered successfully</span>
-                  </div>
-                  <div className="stat" role="listitem">
-                    <strong>Top Skills</strong>
-                    <span>Leadership, strategy, execution</span>
-                  </div>
-                  <div className="stat" role="listitem">
-                    <strong>Available</strong>
-                    <span>Open to opportunities</span>
+                  <div style={{position: 'absolute', left: 12, bottom: 12, display: 'flex', gap: '0.5rem', alignItems: 'center'}}>
+                    <div style={{background: 'linear-gradient(90deg,var(--brand),var(--accent))', color: '#fff', padding: '0.35rem 0.6rem', borderRadius: '999px', fontWeight: 700, fontSize: '0.85rem'}}>Featured</div>
+                    <div style={{background: 'rgba(255,255,255,0.9)', padding: '0.35rem 0.6rem', borderRadius: '0.6rem', fontWeight: 700, fontSize: '0.85rem'}}>Case study</div>
                   </div>
                 </div>
               </aside>
