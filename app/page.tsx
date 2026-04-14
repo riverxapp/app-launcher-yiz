@@ -1,4 +1,4 @@
-import { Navbar } from "@/components/Navbar";
+import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 
 export default function Home() {
@@ -798,396 +798,404 @@ export default function Home() {
       <div className="page-shell">
         <a href="#main" className="skip-link">Skip to content</a>
         <Navbar />
-        <main id="main" className="content-wrap">
-          <section className="hero-card" aria-labelledby="hero-title">
-            <div className="hero-shape shape-a" aria-hidden="true" />
-            <div className="hero-grid">
-              <div className="hero-left">
-                <span className="eyebrow" aria-label="Site type">Professional Resume Website</span>
+        <main id="main" className="relative min-h-screen bg-slate-950 text-white">
+          <div
+            className="pointer-events-none absolute inset-0 bg-[radial-gradient(50%_50%_at_20%_20%,rgba(56,189,248,0.12),transparent_60%),radial-gradient(50%_50%_at_80%_0%,rgba(217,70,239,0.12),transparent_60%),radial-gradient(50%_50%_at_100%_80%,rgba(16,185,129,0.12),transparent_60%)]"
+            aria-hidden="true"
+          />
+          <div className="content-wrap">
+            <HeroSection />
 
-                <h1 id="hero-title" className="hero-title">
-                  Hi, I&apos;m a product-minded engineer building
-                  <span className="hero-highlight"> delightful, reliable products</span>
-                </h1>
+            <section className="hero-card" aria-labelledby="hero-title">
+              <div className="hero-shape shape-a" aria-hidden="true" />
+              <div className="hero-grid">
+                <div className="hero-left">
+                  <span className="eyebrow" aria-label="Site type">Professional Resume Website</span>
 
-                <p className="hero-lead">
-                  I blend design sensibility with pragmatic engineering to ship useful software that scales.
-                </p>
+                  <h1 id="hero-title" className="hero-title">
+                    Hi, I&apos;m a product-minded engineer building
+                    <span className="hero-highlight"> delightful, reliable products</span>
+                  </h1>
 
-                <p className="hero-description">
-                  From discovery to launch, I partner with teams to define clear goals, deliver robust systems,
-                  and measure impact. I specialize in modern web platforms, UX-driven features, and developer
-                  experience.
-                </p>
+                  <p className="hero-lead">
+                    I blend design sensibility with pragmatic engineering to ship useful software that scales.
+                  </p>
 
-                <div className="hero-ctas" role="group" aria-label="Primary actions">
-                  <a className="btn btn-primary" href="#contact" aria-label="Contact me">
-                    Contact Me
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                  </a>
+                  <p className="hero-description">
+                    From discovery to launch, I partner with teams to define clear goals, deliver robust systems,
+                    and measure impact. I specialize in modern web platforms, UX-driven features, and developer
+                    experience.
+                  </p>
 
-                  <a className="btn btn-secondary" href="#experience" aria-label="View experience">
-                    View Experience
-                  </a>
+                  <div className="hero-ctas" role="group" aria-label="Primary actions">
+                    <a className="btn btn-primary" href="#contact" aria-label="Contact me">
+                      Contact Me
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                    </a>
 
-                  <a className="btn btn-ghost" href="/resume.pdf" target="_blank" rel="noopener noreferrer" download aria-label="Download resume">
-                    Download Resume
-                  </a>
-                </div>
+                    <a className="btn btn-secondary" href="#experience" aria-label="View experience">
+                      View Experience
+                    </a>
 
-                <div className="hero-metrics" aria-hidden="false">
-                  <div className="metric" role="img" aria-label="Years experience">
-                    <div className="value">10+</div>
-                    <div className="label">Years Experience</div>
-                  </div>
-                  <div className="metric" role="img" aria-label="Projects shipped">
-                    <div className="value">50+</div>
-                    <div className="label">Projects Shipped</div>
-                  </div>
-                  <div className="metric" role="img" aria-label="Teams worked with">
-                    <div className="value">20+</div>
-                    <div className="label">Teams & Clients</div>
-                  </div>
-                </div>
-
-                <div className="trusted-logos" aria-hidden="true">
-                  <div className="logo">TechCorp</div>
-                  <div className="logo">Startup Studio</div>
-                  <div className="logo">Acme</div>
-                </div>
-              </div>
-
-              <aside className="hero-right" aria-label="Visual preview">
-                <div className="visual-card" role="img" aria-label="Project preview mockup">
-                  <div className="overlay-card" aria-hidden="true" />
-                  <div className="overlay-btm" aria-hidden="true" />
-                  <div className="device-mock" aria-hidden="true">
-                    <div className="screenshot">Project Preview</div>
+                    <a className="btn btn-ghost" href="/resume.pdf" target="_blank" rel="noopener noreferrer" download aria-label="Download resume">
+                      Download Resume
+                    </a>
                   </div>
 
-                  <div style={{position: 'absolute', left: 12, bottom: 12, display: 'flex', gap: '0.5rem', alignItems: 'center'}}>
-                    <div style={{background: 'linear-gradient(90deg,var(--brand),var(--accent))', color: '#fff', padding: '0.35rem 0.6rem', borderRadius: '999px', fontWeight: 700, fontSize: '0.85rem'}}>Featured</div>
-                    <div style={{background: 'rgba(255,255,255,0.9)', padding: '0.35rem 0.6rem', borderRadius: '0.6rem', fontWeight: 700, fontSize: '0.85rem'}}>Case study</div>
+                  <div className="hero-metrics" aria-hidden="false">
+                    <div className="metric" role="img" aria-label="Years experience">
+                      <div className="value">10+</div>
+                      <div className="label">Years Experience</div>
+                    </div>
+                    <div className="metric" role="img" aria-label="Projects shipped">
+                      <div className="value">50+</div>
+                      <div className="label">Projects Shipped</div>
+                    </div>
+                    <div className="metric" role="img" aria-label="Teams worked with">
+                      <div className="value">20+</div>
+                      <div className="label">Teams & Clients</div>
+                    </div>
+                  </div>
+
+                  <div className="trusted-logos" aria-hidden="true">
+                    <div className="logo">TechCorp</div>
+                    <div className="logo">Startup Studio</div>
+                    <div className="logo">Acme</div>
                   </div>
                 </div>
-              </aside>
-            </div>
-            <div className="hero-shape shape-b" aria-hidden="true" />
-          </section>
 
-          <section className="section" aria-label="Professional highlights">
-            <header className="section-header">
-              <div>
-                <h2 className="section-title">Highlights</h2>
-                <p className="section-subtitle">A quick overview of what I do and how I can help.</p>
+                <aside className="hero-right" aria-label="Visual preview">
+                  <div className="visual-card" role="img" aria-label="Project preview mockup">
+                    <div className="overlay-card" aria-hidden="true" />
+                    <div className="overlay-btm" aria-hidden="true" />
+                    <div className="device-mock" aria-hidden="true">
+                      <div className="screenshot">Project Preview</div>
+                    </div>
+
+                    <div style={{position: 'absolute', left: 12, bottom: 12, display: 'flex', gap: '0.5rem', alignItems: 'center'}}>
+                      <div style={{background: 'linear-gradient(90deg,var(--brand),var(--accent))', color: '#fff', padding: '0.35rem 0.6rem', borderRadius: '999px', fontWeight: 700, fontSize: '0.85rem'}}>Featured</div>
+                      <div style={{background: 'rgba(255,255,255,0.9)', padding: '0.35rem 0.6rem', borderRadius: '0.6rem', fontWeight: 700, fontSize: '0.85rem'}}>Case study</div>
+                    </div>
+                  </div>
+                </aside>
               </div>
-            </header>
-            <div className="section-grid">
-              <article className="info-card" aria-labelledby="about-title">
-                <h3 id="about-title">About Me</h3>
-                <p>
-                  I bring a detail-oriented approach to every project, combining professional communication,
-                  dependable execution, and a strong commitment to excellence.
-                </p>
-              </article>
+              <div className="hero-shape shape-b" aria-hidden="true" />
+            </section>
 
-              <article className="info-card" id="experience" aria-labelledby="exp-title">
-                <h3 id="exp-title">Experience</h3>
-                <p>
-                  Skilled in contributing to fast-paced environments, collaborating across teams, and
-                  transforming goals into thoughtful, high-quality outcomes.
-                </p>
-              </article>
+            <section className="section" aria-label="Professional highlights">
+              <header className="section-header">
+                <div>
+                  <h2 className="section-title">Highlights</h2>
+                  <p className="section-subtitle">A quick overview of what I do and how I can help.</p>
+                </div>
+              </header>
+              <div className="section-grid">
+                <article className="info-card" aria-labelledby="about-title">
+                  <h3 id="about-title">About Me</h3>
+                  <p>
+                    I bring a detail-oriented approach to every project, combining professional communication,
+                    dependable execution, and a strong commitment to excellence.
+                  </p>
+                </article>
 
-              <article className="info-card" id="contact-intro" aria-labelledby="contact-title">
-                <h3 id="contact-title">Contact</h3>
-                <p>
-                  Ready to discuss opportunities, partnerships, or projects. Let&apos;s connect and build
-                  something meaningful together.
-                </p>
-              </article>
-            </div>
-          </section>
+                <article className="info-card" id="experience" aria-labelledby="exp-title">
+                  <h3 id="exp-title">Experience</h3>
+                  <p>
+                    Skilled in contributing to fast-paced environments, collaborating across teams, and
+                    transforming goals into thoughtful, high-quality outcomes.
+                  </p>
+                </article>
 
-          <section className="section" id="skills" aria-labelledby="skills-title">
-            <header className="section-header">
-              <div>
-                <h2 className="section-title" id="skills-title">Core Skills</h2>
-                <p className="section-subtitle">Technical proficiencies and strengths</p>
+                <article className="info-card" id="contact-intro" aria-labelledby="contact-title">
+                  <h3 id="contact-title">Contact</h3>
+                  <p>
+                    Ready to discuss opportunities, partnerships, or projects. Let&apos;s connect and build
+                    something meaningful together.
+                  </p>
+                </article>
               </div>
-              <div className="chips" aria-label="Key tags">
-                <span className="chip">Frontend</span>
-                <span className="chip">Backend</span>
-                <span className="chip">Product</span>
+            </section>
+
+            <section className="section" id="skills" aria-labelledby="skills-title">
+              <header className="section-header">
+                <div>
+                  <h2 className="section-title" id="skills-title">Core Skills</h2>
+                  <p className="section-subtitle">Technical proficiencies and strengths</p>
+                </div>
+                <div className="chips" aria-label="Key tags">
+                  <span className="chip">Frontend</span>
+                  <span className="chip">Backend</span>
+                  <span className="chip">Product</span>
+                </div>
+              </header>
+              <div className="skill-grid">
+                <article className="skill-card" aria-label="JavaScript skill">
+                  <header>
+                    <span className="skill-name">JavaScript / TypeScript</span>
+                    <span className="skill-level">Expert</span>
+                  </header>
+                  <div className="progress" role="progressbar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={95}>
+                    <span style={{ width: "95%" }} />
+                  </div>
+                  <div className="chips">
+                    <span className="chip">ESNext</span>
+                    <span className="chip">Node.js</span>
+                    <span className="chip">Tooling</span>
+                  </div>
+                </article>
+
+                <article className="skill-card" aria-label="React skill">
+                  <header>
+                    <span className="skill-name">React & Modern UI</span>
+                    <span className="skill-level">Advanced</span>
+                  </header>
+                  <div className="progress" role="progressbar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={90}>
+                    <span style={{ width: "90%" }} />
+                  </div>
+                  <div className="chips">
+                    <span className="chip">Next.js</span>
+                    <span className="chip">Design Systems</span>
+                    <span className="chip">Accessibility</span>
+                  </div>
+                </article>
+
+                <article className="skill-card" aria-label="Cloud skill">
+                  <header>
+                    <span className="skill-name">Cloud & DevOps</span>
+                    <span className="skill-level">Advanced</span>
+                  </header>
+                  <div className="progress" role="progressbar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={80}>
+                    <span style={{ width: "80%" }} />
+                  </div>
+                  <div className="chips">
+                    <span className="chip">AWS</span>
+                    <span className="chip">CI/CD</span>
+                    <span className="chip">Observability</span>
+                  </div>
+                </article>
               </div>
-            </header>
-            <div className="skill-grid">
-              <article className="skill-card" aria-label="JavaScript skill">
-                <header>
-                  <span className="skill-name">JavaScript / TypeScript</span>
-                  <span className="skill-level">Expert</span>
-                </header>
-                <div className="progress" role="progressbar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={95}>
-                  <span style={{ width: "95%" }} />
-                </div>
-                <div className="chips">
-                  <span className="chip">ESNext</span>
-                  <span className="chip">Node.js</span>
-                  <span className="chip">Tooling</span>
-                </div>
-              </article>
+            </section>
 
-              <article className="skill-card" aria-label="React skill">
-                <header>
-                  <span className="skill-name">React & Modern UI</span>
-                  <span className="skill-level">Advanced</span>
-                </header>
-                <div className="progress" role="progressbar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={90}>
-                  <span style={{ width: "90%" }} />
+            <section className="section" aria-labelledby="experience-title">
+              <header className="section-header">
+                <div>
+                  <h2 className="section-title" id="experience-title">Experience</h2>
+                  <p className="section-subtitle">Roles that shaped my approach and impact</p>
                 </div>
-                <div className="chips">
-                  <span className="chip">Next.js</span>
-                  <span className="chip">Design Systems</span>
-                  <span className="chip">Accessibility</span>
-                </div>
-              </article>
+              </header>
+              <ol className="timeline" aria-label="Work timeline">
+                <li className="timeline-item">
+                  <div className="timeline-meta">
+                    <span>Staff Software Engineer</span>
+                    <span>•</span>
+                    <span>TechCorp</span>
+                    <span>•</span>
+                    <time dateTime="2021-01">2021</time>–Present
+                  </div>
+                  <h3 className="timeline-role">Leading platform initiatives for scalable, secure web apps</h3>
+                  <ul className="timeline-points">
+                    <li>Drove architecture for multi-tenant platform serving 1M+ users.</li>
+                    <li>Mentored engineers; established code quality and testing standards.</li>
+                    <li>Partnered with product to increase retention by 12% YoY.</li>
+                  </ul>
+                </li>
+                <li className="timeline-item">
+                  <div className="timeline-meta">
+                    <span>Senior Frontend Engineer</span>
+                    <span>•</span>
+                    <span>Acme Inc.</span>
+                    <span>•</span>
+                    <time dateTime="2018-03">2018</time>–2020
+                  </div>
+                  <h3 className="timeline-role">Built design system and modernized web stack</h3>
+                  <ul className="timeline-points">
+                    <li>Created component library adopted across 6 product teams.</li>
+                    <li>Improved performance (TTI -35%) with code-splitting and SSR.</li>
+                    <li>Led accessibility initiative to AA compliance.</li>
+                  </ul>
+                </li>
+                <li className="timeline-item">
+                  <div className="timeline-meta">
+                    <span>Software Engineer</span>
+                    <span>•</span>
+                    <span>Startup Studio</span>
+                    <span>•</span>
+                    <time dateTime="2015-06">2015</time>–2018
+                  </div>
+                  <h3 className="timeline-role">Shipped MVPs and iterated to product-market fit</h3>
+                  <ul className="timeline-points">
+                    <li>Delivered 10+ full-stack MVPs across e‑commerce and SaaS.</li>
+                    <li>Implemented analytics loops to guide roadmap decisions.</li>
+                  </ul>
+                </li>
+              </ol>
+            </section>
 
-              <article className="skill-card" aria-label="Cloud skill">
-                <header>
-                  <span className="skill-name">Cloud & DevOps</span>
-                  <span className="skill-level">Advanced</span>
-                </header>
-                <div className="progress" role="progressbar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={80}>
-                  <span style={{ width: "80%" }} />
+            <section className="section" id="projects" aria-labelledby="projects-title">
+              <header className="section-header">
+                <div>
+                  <h2 className="section-title" id="projects-title">Selected Projects</h2>
+                  <p className="section-subtitle">A few examples of work and outcomes</p>
                 </div>
-                <div className="chips">
-                  <span className="chip">AWS</span>
-                  <span className="chip">CI/CD</span>
-                  <span className="chip">Observability</span>
-                </div>
-              </article>
-            </div>
-          </section>
+              </header>
+              <div className="projects-grid">
+                <article className="project-card">
+                  <h3 className="project-title">Analytics Dashboard</h3>
+                  <p className="project-desc">
+                    Real-time analytics with custom charting, role-based access, and export pipelines.
+                  </p>
+                  <div className="chips">
+                    <span className="chip">Next.js</span>
+                    <span className="chip">WebSockets</span>
+                    <span className="chip">D3</span>
+                  </div>
+                  <div className="project-actions">
+                    <a className="btn btn-secondary" href="#" aria-disabled="true">Case Study</a>
+                  </div>
+                </article>
 
-          <section className="section" aria-labelledby="experience-title">
-            <header className="section-header">
-              <div>
-                <h2 className="section-title" id="experience-title">Experience</h2>
-                <p className="section-subtitle">Roles that shaped my approach and impact</p>
+                <article className="project-card">
+                  <h3 className="project-title">Design System</h3>
+                  <p className="project-desc">
+                    Cross-platform component library with theming, tokens, and accessibility baked in.
+                  </p>
+                  <div className="chips">
+                    <span className="chip">Storybook</span>
+                    <span className="chip">Tokens</span>
+                    <span className="chip">A11y</span>
+                  </div>
+                  <div className="project-actions">
+                    <a className="btn btn-secondary" href="#" aria-disabled="true">Docs</a>
+                  </div>
+                </article>
+
+                <article className="project-card">
+                  <h3 className="project-title">Payments Platform</h3>
+                  <p className="project-desc">
+                    PCI-compliant checkout with subscription billing, dunning, and reporting.
+                  </p>
+                  <div className="chips">
+                    <span className="chip">Node.js</span>
+                    <span className="chip">Stripe</span>
+                    <span className="chip">Postgres</span>
+                  </div>
+                  <div className="project-actions">
+                    <a className="btn btn-secondary" href="#" aria-disabled="true">Overview</a>
+                  </div>
+                </article>
               </div>
-            </header>
-            <ol className="timeline" aria-label="Work timeline">
-              <li className="timeline-item">
-                <div className="timeline-meta">
-                  <span>Staff Software Engineer</span>
-                  <span>•</span>
-                  <span>TechCorp</span>
-                  <span>•</span>
-                  <time dateTime="2021-01">2021</time>–Present
-                </div>
-                <h3 className="timeline-role">Leading platform initiatives for scalable, secure web apps</h3>
-                <ul className="timeline-points">
-                  <li>Drove architecture for multi-tenant platform serving 1M+ users.</li>
-                  <li>Mentored engineers; established code quality and testing standards.</li>
-                  <li>Partnered with product to increase retention by 12% YoY.</li>
-                </ul>
-              </li>
-              <li className="timeline-item">
-                <div className="timeline-meta">
-                  <span>Senior Frontend Engineer</span>
-                  <span>•</span>
-                  <span>Acme Inc.</span>
-                  <span>•</span>
-                  <time dateTime="2018-03">2018</time>–2020
-                </div>
-                <h3 className="timeline-role">Built design system and modernized web stack</h3>
-                <ul className="timeline-points">
-                  <li>Created component library adopted across 6 product teams.</li>
-                  <li>Improved performance (TTI -35%) with code-splitting and SSR.</li>
-                  <li>Led accessibility initiative to AA compliance.</li>
-                </ul>
-              </li>
-              <li className="timeline-item">
-                <div className="timeline-meta">
-                  <span>Software Engineer</span>
-                  <span>•</span>
-                  <span>Startup Studio</span>
-                  <span>•</span>
-                  <time dateTime="2015-06">2015</time>–2018
-                </div>
-                <h3 className="timeline-role">Shipped MVPs and iterated to product-market fit</h3>
-                <ul className="timeline-points">
-                  <li>Delivered 10+ full-stack MVPs across e‑commerce and SaaS.</li>
-                  <li>Implemented analytics loops to guide roadmap decisions.</li>
-                </ul>
-              </li>
-            </ol>
-          </section>
+            </section>
 
-          <section className="section" id="projects" aria-labelledby="projects-title">
-            <header className="section-header">
-              <div>
-                <h2 className="section-title" id="projects-title">Selected Projects</h2>
-                <p className="section-subtitle">A few examples of work and outcomes</p>
+            <section className="section" id="testimonials" aria-labelledby="testimonials-title">
+              <header className="section-header">
+                <div>
+                  <h2 className="section-title" id="testimonials-title">Testimonials</h2>
+                  <p className="section-subtitle">What colleagues and clients say</p>
+                </div>
+              </header>
+              <div className="testimonials">
+                <figure className="testimonial">
+                  <blockquote className="quote">A thoughtful leader who ships with quality and empathy for users.</blockquote>
+                  <figcaption className="cite">— Product Manager, TechCorp</figcaption>
+                </figure>
+                <figure className="testimonial">
+                  <blockquote className="quote">Turned our messy prototype into a reliable, scalable application.</blockquote>
+                  <figcaption className="cite">— Founder, Startup Studio</figcaption>
+                </figure>
+                <figure className="testimonial">
+                  <blockquote className="quote">Sets a high bar for code quality and cross-team collaboration.</blockquote>
+                  <figcaption className="cite">— Engineering Manager, Acme Inc.</figcaption>
+                </figure>
               </div>
-            </header>
-            <div className="projects-grid">
-              <article className="project-card">
-                <h3 className="project-title">Analytics Dashboard</h3>
-                <p className="project-desc">
-                  Real-time analytics with custom charting, role-based access, and export pipelines.
-                </p>
-                <div className="chips">
-                  <span className="chip">Next.js</span>
-                  <span className="chip">WebSockets</span>
-                  <span className="chip">D3</span>
-                </div>
-                <div className="project-actions">
-                  <a className="btn btn-secondary" href="#" aria-disabled="true">Case Study</a>
-                </div>
-              </article>
+            </section>
 
-              <article className="project-card">
-                <h3 className="project-title">Design System</h3>
-                <p className="project-desc">
-                  Cross-platform component library with theming, tokens, and accessibility baked in.
-                </p>
-                <div className="chips">
-                  <span className="chip">Storybook</span>
-                  <span className="chip">Tokens</span>
-                  <span className="chip">A11y</span>
+            <section className="section" id="education" aria-labelledby="education-title">
+              <header className="section-header">
+                <div>
+                  <h2 className="section-title" id="education-title">Education & Certifications</h2>
+                  <p className="section-subtitle">Foundations and ongoing learning</p>
                 </div>
-                <div className="project-actions">
-                  <a className="btn btn-secondary" href="#" aria-disabled="true">Docs</a>
-                </div>
-              </article>
-
-              <article className="project-card">
-                <h3 className="project-title">Payments Platform</h3>
-                <p className="project-desc">
-                  PCI-compliant checkout with subscription billing, dunning, and reporting.
-                </p>
-                <div className="chips">
-                  <span className="chip">Node.js</span>
-                  <span className="chip">Stripe</span>
-                  <span className="chip">Postgres</span>
-                </div>
-                <div className="project-actions">
-                  <a className="btn btn-secondary" href="#" aria-disabled="true">Overview</a>
-                </div>
-              </article>
-            </div>
-          </section>
-
-          <section className="section" id="testimonials" aria-labelledby="testimonials-title">
-            <header className="section-header">
-              <div>
-                <h2 className="section-title" id="testimonials-title">Testimonials</h2>
-                <p className="section-subtitle">What colleagues and clients say</p>
+              </header>
+              <div className="edu-grid">
+                <article className="edu-card">
+                  <h4>B.S. in Computer Science</h4>
+                  <div className="edu-meta">State University • 2011–2015</div>
+                  <p className="project-desc" style={{margin: 0}}>
+                    Focus on software engineering, human-computer interaction, and systems.
+                  </p>
+                </article>
+                <article className="edu-card">
+                  <h4>Professional Certifications</h4>
+                  <div className="edu-meta">AWS Certified • Scrum • Accessibility</div>
+                  <p className="project-desc" style={{margin: 0}}>
+                    Continuous learning across cloud, delivery, and inclusive design.
+                  </p>
+                </article>
               </div>
-            </header>
-            <div className="testimonials">
-              <figure className="testimonial">
-                <blockquote className="quote">A thoughtful leader who ships with quality and empathy for users.</blockquote>
-                <figcaption className="cite">— Product Manager, TechCorp</figcaption>
-              </figure>
-              <figure className="testimonial">
-                <blockquote className="quote">Turned our messy prototype into a reliable, scalable application.</blockquote>
-                <figcaption className="cite">— Founder, Startup Studio</figcaption>
-              </figure>
-              <figure className="testimonial">
-                <blockquote className="quote">Sets a high bar for code quality and cross-team collaboration.</blockquote>
-                <figcaption className="cite">— Engineering Manager, Acme Inc.</figcaption>
-              </figure>
-            </div>
-          </section>
+            </section>
 
-          <section className="section" id="education" aria-labelledby="education-title">
-            <header className="section-header">
-              <div>
-                <h2 className="section-title" id="education-title">Education & Certifications</h2>
-                <p className="section-subtitle">Foundations and ongoing learning</p>
-              </div>
-            </header>
-            <div className="edu-grid">
-              <article className="edu-card">
-                <h4>B.S. in Computer Science</h4>
-                <div className="edu-meta">State University • 2011–2015</div>
-                <p className="project-desc" style={{margin: 0}}>
-                  Focus on software engineering, human-computer interaction, and systems.
-                </p>
-              </article>
-              <article className="edu-card">
-                <h4>Professional Certifications</h4>
-                <div className="edu-meta">AWS Certified • Scrum • Accessibility</div>
-                <p className="project-desc" style={{margin: 0}}>
-                  Continuous learning across cloud, delivery, and inclusive design.
-                </p>
-              </article>
-            </div>
-          </section>
-
-          <section className="section" id="contact" aria-labelledby="contact-section-title">
-            <header className="section-header">
-              <div>
-                <h2 className="section-title" id="contact-section-title">Let&apos;s Connect</h2>
-                <p className="section-subtitle">Reach out for opportunities, projects, or collaboration</p>
-              </div>
-            </header>
-            <div className="contact-grid">
-              <aside className="contact-card" aria-label="Contact details">
-                <h3 style={{marginTop: 0}}>Contact Details</h3>
-                <ul className="contact-list">
-                  <li>Email: <a href="mailto:hello@example.com">hello@example.com</a></li>
-                  <li>LinkedIn: <a href="#" aria-disabled="true">linkedin.com/in/yourprofile</a></li>
-                  <li>GitHub: <a href="#" aria-disabled="true">github.com/yourhandle</a></li>
-                  <li>Location: Remote • Global</li>
-                </ul>
-                <div className="cta-group" style={{marginTop: '1rem'}}>
-                  <a className="btn btn-primary" href="/resume.pdf" target="_blank" rel="noopener noreferrer" download>Download Resume</a>
-                  <a className="btn btn-secondary" href="#projects">View Projects</a>
+            <section className="section" id="contact" aria-labelledby="contact-section-title">
+              <header className="section-header">
+                <div>
+                  <h2 className="section-title" id="contact-section-title">Let&apos;s Connect</h2>
+                  <p className="section-subtitle">Reach out for opportunities, projects, or collaboration</p>
                 </div>
-              </aside>
+              </header>
+              <div className="contact-grid">
+                <aside className="contact-card" aria-label="Contact details">
+                  <h3 style={{marginTop: 0}}>Contact Details</h3>
+                  <ul className="contact-list">
+                    <li>Email: <a href="mailto:hello@example.com">hello@example.com</a></li>
+                    <li>LinkedIn: <a href="#" aria-disabled="true">linkedin.com/in/yourprofile</a></li>
+                    <li>GitHub: <a href="#" aria-disabled="true">github.com/yourhandle</a></li>
+                    <li>Location: Remote • Global</li>
+                  </ul>
+                  <div className="cta-group" style={{marginTop: '1rem'}}>
+                    <a className="btn btn-primary" href="/resume.pdf" target="_blank" rel="noopener noreferrer" download>Download Resume</a>
+                    <a className="btn btn-secondary" href="#projects">View Projects</a>
+                  </div>
+                </aside>
 
-              <form className="contact-form" method="post" action="mailto:hello@example.com" encType="text/plain" aria-label="Contact form">
-                <div className="form-row">
+                <form className="contact-form" method="post" action="mailto:hello@example.com" encType="text/plain" aria-label="Contact form">
+                  <div className="form-row">
+                    <div className="form-field">
+                      <label htmlFor="name">Name</label>
+                      <input id="name" name="name" type="text" placeholder="Your name" required />
+                    </div>
+                    <div className="form-field">
+                      <label htmlFor="email">Email</label>
+                      <input id="email" name="email" type="email" placeholder="you@example.com" required />
+                    </div>
+                  </div>
                   <div className="form-field">
-                    <label htmlFor="name">Name</label>
-                    <input id="name" name="name" type="text" placeholder="Your name" required />
+                    <label htmlFor="subject">Subject</label>
+                    <input id="subject" name="subject" type="text" placeholder="How can I help?" />
                   </div>
                   <div className="form-field">
-                    <label htmlFor="email">Email</label>
-                    <input id="email" name="email" type="email" placeholder="you@example.com" required />
+                    <label htmlFor="message">Message</label>
+                    <textarea id="message" name="message" rows={5} placeholder="Share a few details about your goals..." required />
                   </div>
-                </div>
-                <div className="form-field">
-                  <label htmlFor="subject">Subject</label>
-                  <input id="subject" name="subject" type="text" placeholder="How can I help?" />
-                </div>
-                <div className="form-field">
-                  <label htmlFor="message">Message</label>
-                  <textarea id="message" name="message" rows={5} placeholder="Share a few details about your goals..." required />
-                </div>
-                <div className="form-actions">
-                  <button className="btn btn-primary" type="submit">Send Message</button>
-                  <a className="btn btn-ghost" href="mailto:hello@example.com">Open Email Client</a>
-                </div>
-              </form>
-            </div>
-          </section>
+                  <div className="form-actions">
+                    <button className="btn btn-primary" type="submit">Send Message</button>
+                    <a className="btn btn-ghost" href="mailto:hello@example.com">Open Email Client</a>
+                  </div>
+                </form>
+              </div>
+            </section>
 
-          <footer className="site-footer" role="contentinfo">
-            <div className="footer-inner">
-              <small>© {new Date().getFullYear()} All rights reserved.</small>
-              <nav className="footer-nav" aria-label="Footer">
-                <a href="#skills">Skills</a>
-                <a href="#experience">Experience</a>
-                <a href="#projects">Projects</a>
-                <a href="#education">Education</a>
-                <a href="#contact">Contact</a>
-              </nav>
-            </div>
-          </footer>
+            <footer className="site-footer" role="contentinfo">
+              <div className="footer-inner">
+                <small>© {new Date().getFullYear()} All rights reserved.</small>
+                <nav className="footer-nav" aria-label="Footer">
+                  <a href="#skills">Skills</a>
+                  <a href="#experience">Experience</a>
+                  <a href="#projects">Projects</a>
+                  <a href="#education">Education</a>
+                  <a href="#contact">Contact</a>
+                </nav>
+              </div>
+            </footer>
+          </div>
         </main>
 
         <script
